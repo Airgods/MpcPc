@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mprpc;
+
+// 描述数据头的消息类型
+message RpcHeader
+{
+    bytes service_name = 1;
+    bytes method_name = 2;
+    uint32 args_size = 3;
+}

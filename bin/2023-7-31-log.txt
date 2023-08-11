@@ -1,0 +1,4 @@
+
+6:10:41=>first log message!
+
+6:10:41=>/home/gzj/Project/mprpc/example/callee/friendservice.cc:main48

@@ -1,0 +1,32 @@
+// 做一个好友模块
+syntax = "proto3";
+
+package fixbug; // 类似C++的命名空间
+
+option cc_generic_services = true;
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message GetFriendListRequest
+{
+    uint32 userid = 1;
+
+}
+
+message GetFriendListResponse
+{
+    ResultCode result = 1;
+    repeated bytes friends = 2; // 重复的,指代一个列表
+}
+
+// 好友模块->将其从本地服务发布成rpc远程服务
+service FriendServiceRpc
+{   
+    // 可以按照自己的需求添加更多的方法
+    rpc GetFriendList(GetFriendListRequest) returns(GetFriendListResponse);          // Login请求
+}
+
